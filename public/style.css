@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    height: 100vh;
+}
+
+.wrapper{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100vh;
+    background-color: beige;
+}
+
+.frame{
+    border: 2px solid black;
+    padding: 20px;
+}
+
+
