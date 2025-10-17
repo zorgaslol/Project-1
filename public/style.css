@@ -5,23 +5,113 @@
 }
 
 body{
-    height: 100vh;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: #333;
 }
 
 .wrapper{
     display: flex;
-
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    height: 100vh;
-    background-color: beige;
+    padding: 2rem;
+    background: #f4f6f8;
+    min-height: 100vh;
 }
 
 .frame{
-    border: 2px solid black;
-    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 600px;
+    padding: 1.5rem;
+
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+input, textarea, button{
+    font: inherit;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button{
+    background: #0066ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover{
+    background: #004fd1;
+}
+
+.tasks{
+    padding: 20px;
+    margin-top: 10px;
+    border: 1px solid black;
+}
+
+.p{
+    display: inline;
+}
+
+.mainCard{
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.1s ease;
+}
+
+.mainCard:hover{
+    transform: scale(1.01);
+}
+
+.topCard{
+    display: flex;
+    justify-content: center;
+}
+
+.bottomCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.leftCard{
+    flex: 1 1 70%;
+    word-wrap: break-word;
+}
+
+.rightCard{
+    flex: 0 0 auto;
+}
+
+.rightCard button{
+    background: #ff3b3b;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.rightCard button:hover{
+    background: #d62a2a;
+}
+
+.task-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 

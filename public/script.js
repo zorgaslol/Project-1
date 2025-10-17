@@ -7,7 +7,15 @@ form.addEventListener("submit", fetchData);
 
 async function fetchData(event){
     event.preventDefault();
-    console.log("JS is working")
+
+    const title = form.querySelector("#pavadinimas").value.trim();
+    const desc = form.querySelector("#aprasymas").value.trim();
+
+
+    if(!title || !desc){
+      alert("Prasau uzpildyti abu laukus");
+      return;
+    }
     const fd = new FormData(form);
 
     const response = await fetch("index.php", {
@@ -21,10 +29,13 @@ async function fetchData(event){
     const data = await response.json();
 
     const li = document.createElement("li");
+    li.classList.add("mainCard");
     li.innerHTML = `
-        <h3>${data.title}</h3
-        <p>${data.description}</p>
-        <button class="delete-btn">Delete</button>
+        <div class="topCard">${data.title}</div>
+                                    <div class="bottomCard">
+                                        <div class="leftCard">${data.description}</div>
+                                        <div class="rightCard"><button class="delete-btn">Delete</button></div>
+                                    </div>
     `;
     taskList.append(li);
     form.reset();
@@ -34,13 +45,13 @@ async function fetchData(event){
 taskList.addEventListener("click", async (e) => {
   if (!e.target.classList.contains("delete-btn")) return;
 
-  const li = e.target.closest("li");
-  const title = li.querySelector("h3").textContent;
-  const description = li.querySelector("p").textContent;
+  const li = e.target.closest(".mainCard");
+  const title = li.querySelector(".topCard").textContent;
+  const description = li.querySelector(".leftCard").textContent;
 
   const fd = new FormData();
-  fd.append("title", title);
-  fd.append("description", description);
+  fd.append("pavadinimas", title);
+  fd.append("aprasymas", description);
   fd.append("delete", "true");
 
   const res = await fetch("index.php", {
